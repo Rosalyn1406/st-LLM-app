@@ -89,7 +89,7 @@ def test_openai_api_key(api_key):
     except Exception as e:  # Catch a general exception
         # Log the exception message
         print(f"An exception occurred: {e}")
-        return False  
+    return False  
 
 if __name__ == "__main__":
     # import os
