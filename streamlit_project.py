@@ -84,8 +84,8 @@ def test_openai_api_key(api_key):
         # Make a test call to the API (this is a lightweight call just to verify the API key)
         openai.Completion.create(engine="babbage-002", prompt="Test", max_tokens=5)
         return True
-    # except openai.error.AuthenticationError:
-    #     print("Authentication error: Invalid API key")
+    except openai.error.AuthenticationError:
+        print("Authentication error: Invalid API key")
     except Exception as e:  # Catch any exceptions
         print(f"An exception occurred: {e}")
         return False
