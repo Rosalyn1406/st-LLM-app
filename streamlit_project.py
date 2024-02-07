@@ -198,3 +198,5 @@ if __name__ == "__main__":
             st.text_area(label='Chat History', value=h, key='history', height=400)
 
             # Check if AuthenticationError is present in the openai.error module
+
+st.write("OpenAI Library Version:", openai.__version__)
