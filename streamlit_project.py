@@ -81,16 +81,15 @@ def test_openai_api_key(api_key):
     try:
         openai.api_key = api_key
         response = openai.Completion.create(
-            model="text-davinci-003",  # Use a model that's available in your OpenAI plan
-            prompt="Test",
+            model="text-davinci-003",  # Ensure this model is available in your plan
+            prompt="Hello, world!",
             max_tokens=5
         )
-        print(response)  # You can print or log the response for debugging
+        print("API Test Response:", response)  # Log the response
         return True
-    except Exception as e:  # Catch any exceptions
-        print(f"An exception occurred: {e}")
+    except Exception as e:
+        print("API Test Error:", e)  # Log detailed error
         return False
-
 
 if __name__ == "__main__":
     # import os
