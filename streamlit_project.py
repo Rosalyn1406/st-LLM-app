@@ -19,7 +19,7 @@ def load_document(file):
         print(f'Loading {file}')
         loader = PyPDFLoader(file)
     elif extension == '.docx':
-        from langchain.document_loaders import Docx2txtLoader
+        from langchain_community.document_loaders import Docx2txtLoader
         print(f'Loading {file}')
         loader = Docx2txtLoader(file)
     elif extension == '.txt':
