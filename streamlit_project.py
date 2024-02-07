@@ -78,17 +78,16 @@ def clear_history():
         del st.session_state['history']
 
 def test_openai_api_key(api_key):
+    """Function to test the OpenAI API key."""
     try:
         openai.api_key = api_key
-        response = openai.Completion.create(
-            model="text-davinci-003",  # Ensure this model is available in your plan
-            prompt="Hello, world!",
-            max_tokens=5
-        )
-        print("API Test Response:", response)  # Log the response
+        # Make a test call to the API (this is a lightweight call just to verify the API key)
+        openai.Completion.create(engine="babbage-002", prompt="Test", max_tokens=5)
         return True
-    except Exception as e:
-        print("API Test Error:", e)  # Log detailed error
+    except openai.error.AuthenticationError:
+        print("Authentication error: Invalid API key")
+    except Exception as e:  # Catch any exceptions
+        print(f"An exception occurred: {e}")
         return False
 
 if __name__ == "__main__":
