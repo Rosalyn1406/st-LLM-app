@@ -77,7 +77,7 @@ def clear_history():
     if 'history' in st.session_state:
         del st.session_state['history']
 
-ef test_openai_api_key(api_key):
+def test_openai_api_key(api_key):
     """Function to test the OpenAI API key."""
     try:
         openai.api_key = api_key
