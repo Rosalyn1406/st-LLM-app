@@ -53,7 +53,7 @@ def create_embeddings(chunks):
 
 def ask_and_get_answer(vector_store, q, k=3, model_choice= "gpt-3.5-turbo", temperature=1, max_tokens=2048):
     from langchain.chains import RetrievalQA
-    from langchain_openai import ChatOpenAI
+    from langchain_community.chat_models import ChatOpenAI
 
     llm = ChatOpenAI(model=model_choice, temperature=temperature)
 
