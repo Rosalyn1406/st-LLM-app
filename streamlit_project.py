@@ -1,5 +1,5 @@
 import streamlit as st 
-from langchain_openai import OpenAIEmbeddings
+from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 import os
 import openai
