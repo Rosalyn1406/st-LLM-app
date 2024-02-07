@@ -81,7 +81,7 @@ def test_openai_api_key(api_key):
     try:
         openai.api_key = api_key
         response = openai.Completion.create(
-            model="text-davinci-003",  # Use a model that's available in your OpenAI plan
+            model="gpt-3.5-turbo-instruct",  # Use a model that's available in your OpenAI plan
             prompt="Test",
             max_tokens=5
         )
