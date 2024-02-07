@@ -198,4 +198,4 @@ if __name__ == "__main__":
 
             # Check if AuthenticationError is present in the openai.error module
 
-st.write("OpenAI Library Version:", openai.__version__)
+
