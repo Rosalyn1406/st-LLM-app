@@ -1,5 +1,5 @@
 import streamlit as st 
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 import os
 import openai
@@ -23,7 +23,7 @@ def load_document(file):
         print(f'Loading {file}')
         loader = Docx2txtLoader(file)
     elif extension == '.txt':
-        from langchain.document_loaders import TextLoader
+        from langchain_community.document_loaders import TextLoader
         loader = TextLoader(file)
     else:
         print('Document format is not supported')
@@ -53,7 +53,7 @@ def create_embeddings(chunks):
 
 def ask_and_get_answer(vector_store, q, k=3, model_choice= "gpt-3.5-turbo", temperature=1, max_tokens=2048):
     from langchain.chains import RetrievalQA
-    from langchain.chat_models import ChatOpenAI
+    from langchain_openai import ChatOpenAI
 
     llm = ChatOpenAI(model=model_choice, temperature=temperature)
 
