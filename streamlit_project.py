@@ -84,12 +84,12 @@ def test_openai_api_key(api_key):
         # Make a test call to the API (this is a lightweight call just to verify the API key)
         openai.Completion.create(engine="babbage-002", prompt="Test", max_tokens=5)
         return True
-    except openai.error.AuthenticationError:
-        print("Authentication error: Invalid API key.")
-    except Exception as e:  # Catch a general exception
-        # Log the exception message
-        print(f"An exception occurred: {e}")
-    return False  
+    except openai.error.OpenAIError as e:  # Catch exceptions specifically thrown by the OpenAI client
+        print(f"OpenAI API error: {e}")
+        return False
+    except Exception as e:  # Catch any other exceptions
+        print(f"An unexpected error occurred: {e}")
+        return False
 
 if __name__ == "__main__":
     # import os
